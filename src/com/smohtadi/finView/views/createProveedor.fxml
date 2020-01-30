@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.smohtadi.finView.controllers.CreateProveedorController">
+    <children>
+    <Label layoutX="38.0" layoutY="29.0" styleClass="mainChildHeader" text="Crear Proveedor" AnchorPane.leftAnchor="21.0" />
+      <Separator layoutY="66.0" prefHeight="5.0" prefWidth="250.0" AnchorPane.leftAnchor="10.0" />
+
+        <Label layoutX="21.0" layoutY="89.0" text="ID del Proveedor" AnchorPane.leftAnchor="21.0" />
+    <TextField fx:id="proveedorIdTextField" layoutX="148.0" layoutY="85.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="10.0" />
+
+    <Label layoutX="21.0" layoutY="127.0" text="Nombre del Proveedor" AnchorPane.leftAnchor="21.0" />
+    <TextField fx:id="nombreTextField" layoutX="148.0" layoutY="125.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="10.0" />
+
+    <Label layoutX="21.0" layoutY="171.0" text="Ruc del Proveedor" AnchorPane.leftAnchor="21.0" />
+    <TextField fx:id="rucTextField" layoutX="148.0" layoutY="165.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="10.0" />
+
+    <Button layoutX="291.0" layoutY="213.0" mnemonicParsing="false" onAction="#onClickSave" text="Guardar" AnchorPane.leftAnchor="21.0" />
+    </children>
+</AnchorPane>

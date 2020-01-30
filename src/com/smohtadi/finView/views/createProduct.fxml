@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="parentAnchorPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.smohtadi.finView.controllers.CreateProductController">
+    <children>
+        <Label layoutX="38.0" layoutY="29.0" styleClass="mainChildHeader" text="Crear Producto" AnchorPane.leftAnchor="21.0" />
+        <Separator layoutY="66.0" prefHeight="5.0" prefWidth="250.0" AnchorPane.leftAnchor="10.0" />
+        <Label layoutX="20.0" layoutY="89.0" text="ID del Producto" AnchorPane.leftAnchor="20.0" />
+        <TextField fx:id="productoIdTextField" layoutX="148.0" layoutY="85.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="10.0" />
+
+        <Label layoutX="20.0" layoutY="127.0" text="Descripcion" AnchorPane.leftAnchor="20.0" />
+        <TextField fx:id="descripcionTextField" layoutX="148.0" layoutY="125.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="10.0" />
+
+        <Label layoutX="20.0" layoutY="169.0" text="Grupo" AnchorPane.leftAnchor="20.0" />
+        <TextField fx:id="grupoTextField" layoutX="148.0" layoutY="165.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="10.0" />
+
+        <Label layoutX="20.0" layoutY="209.0" text="Precio FOB" AnchorPane.leftAnchor="20.0" />
+        <TextField fx:id="precioTextField" layoutX="148.0" layoutY="209.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="10.0" />
+
+        <Label layoutX="20.0" layoutY="255.0" text="Proveedor Id" AnchorPane.leftAnchor="20.0" />
+        <TextField layoutX="148.0" layoutY="255.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="10.0" />
+
+        <Button layoutX="22.0" layoutY="300.0" mnemonicParsing="false" onAction="#onClickSave" text="Guardar" AnchorPane.leftAnchor="22.0" />
+
+    </children>
+</AnchorPane>

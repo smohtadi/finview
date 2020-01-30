@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="parentAnchorPane" minHeight="480" minWidth="640" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.smohtadi.finView.controllers.CreateFacturaController">
+    <children>
+        <Label layoutX="38.0" layoutY="30.0" styleClass="mainChildHeader" text="Factura" AnchorPane.leftAnchor="20.0" />
+        <Label layoutX="469.0" layoutY="30.0" text="No. de Factura" />
+        <Label fx:id="facturaIdLabel" layoutX="613.0" layoutY="30.0" text="0" AnchorPane.rightAnchor="10.0" />
+        <Separator layoutY="66.0" prefHeight="5.0" prefWidth="250.0" AnchorPane.leftAnchor="10.0" />
+        <Label layoutX="22.0" layoutY="88.0" text="Fecha de la Factura" AnchorPane.leftAnchor="10.0" />
+        <TextField fx:id="fechaTextField" layoutX="136.0" layoutY="84.0" prefHeight="25.0" prefWidth="122.0" promptText="dd/MM/yyyy" />
+        <Label layoutX="20.0" layoutY="130.0" text="No. de Control" AnchorPane.leftAnchor="10.0" />
+        <TextField fx:id="noControlTextField" layoutX="136.0" layoutY="126.0" promptText="No de Factura del Proveedor" />
+        <Label fx:id="nombreProveedorLabel" layoutX="235.0" layoutY="171.0" text="Nombre del Proveedor" />
+        <Label fx:id="rucProveedorLabel" layoutX="382.0" layoutY="171.0" text="RUC" />
+        <Label layoutX="20.0" layoutY="206.0" text="Modo de Pago" AnchorPane.leftAnchor="10.0" />
+        <Label layoutX="186.0" layoutY="206.0" text="Credito Dias" />
+        <Label layoutX="463.0" layoutY="206.0" text="Descuento" />
+
+        <ComboBox fx:id="modoPagoComboBox" layoutX="20.0" layoutY="234.0" onAction="#onClickModoPago" prefWidth="150.0" promptText="Modo de Pago" AnchorPane.leftAnchor="10.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Contado" />
+                    <String fx:value="Credito" />
+                    <String fx:value="Cuotas" />
+                </FXCollections>
+            </items>
+            <value>
+                <String fx:value="Contado" />
+            </value>
+        </ComboBox>
+        <TextField fx:id="creditoDiasTextField" disable="true" layoutX="186.0" layoutY="234.0" prefWidth="78.0" promptText="Credito dias" />
+
+        <TextField fx:id="descuentoTextField" layoutX="460.0" layoutY="234.0" prefHeight="25.0" prefWidth="90.0" promptText="Descuento" />
+
+        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="10.0" layoutY="275.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <content>
+                <AnchorPane>
+                    <children>
+                        <TableView fx:id="itemsTableView" onMouseClicked="#onClickTableDetails" prefHeight="200.0" prefWidth="322.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columns>
+                                <TableColumn text="Id">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="productoId" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Descripcion">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="descripcion" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Cantidad">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="cantidad" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Precio">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="precio" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <Label fx:id="productoDescripcionLabel" layoutX="108.0" layoutY="492.0" text="Descripcion" />
+        <TextField fx:id="productoCantidadTextField" layoutX="358.0" layoutY="488.0" prefWidth="67.0" promptText="Cantidad" />
+        <TextField fx:id="productoPrecioTextField" layoutX="463.0" layoutY="488.0" prefHeight="25.0" prefWidth="90.0" promptText="Precio" />
+        <Button layoutX="597.0" layoutY="488.0" mnemonicParsing="false" onAction="#onClickSetProduct" text="Agregar" AnchorPane.rightAnchor="10.0" />
+      <Separator layoutX="10.0" layoutY="524.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+        <Separator layoutX="403.0" layoutY="541.0" orientation="VERTICAL" prefHeight="146.0" prefWidth="1.0" />
+        <AnchorPane fx:id="cuotasAnchorPane" layoutX="10.0" layoutY="541.0" prefHeight="200.0" prefWidth="380.0" visible="false">
+            <children>
+                <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="110.0" prefWidth="380.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <TableView onMouseClicked="#onClickCreditoMenu" fx:id="cuotaTableView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn prefWidth="75.0" text="Fecha Vcto">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="fechaVcto" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="Fecha Pago">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="fechaPago" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="Monto">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="monto" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </ScrollPane>
+                <TextField fx:id="cuotaFechaVctoTextField" layoutY="124.0" prefHeight="25.0" prefWidth="90.0" promptText="Fecha de Vencimiento" />
+                <TextField fx:id="cuotaFechaPagoTextField" layoutX="109.0" layoutY="124.0" prefHeight="25.0" prefWidth="90.0" promptText="Fecha de Pago" AnchorPane.leftAnchor="109.0" />
+                <TextField fx:id="cuotaMontoTextField" layoutX="215.0" layoutY="124.0" prefHeight="25.0" prefWidth="90.0" promptText="Monto" />
+                <Button layoutX="321.0" layoutY="124.0" mnemonicParsing="false" onAction="#onClickAddCuota" text="Agregar" />
+            </children>
+        </AnchorPane>
+        <Label layoutX="419.0" layoutY="547.0" text="Suma" />
+        <Label layoutX="419.0" layoutY="577.0" text="Descuento" />
+        <Label layoutX="419.0" layoutY="604.0" text="Total" />
+        <Label layoutX="419.0" layoutY="632.0" text="Saldo" />
+        <Label fx:id="sumaLabel" layoutX="520.0" layoutY="548.0" text="0" />
+        <Label fx:id="descuentoLabel" layoutX="520.0" layoutY="577.0" text="0" />
+        <Label fx:id="totalLabel" layoutX="520.0" layoutY="604.0" text="0" />
+        <Label fx:id="saldoLabel" layoutX="520.0" layoutY="632.0" text="0" />
+        <Button layoutX="571.0" layoutY="662.0" mnemonicParsing="false" onAction="#onClickSaveFactura" text="Guardar" AnchorPane.rightAnchor="10.0" />
+    </children>
+</AnchorPane>

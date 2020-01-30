@@ -1,0 +1,14 @@
+.root{
+    -fx-font-family: "Ebrima", "Segoe UI", -apple-system, BlinkMacSystemFont, "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;;
+}
+.mainChildHeader {
+-fx-font-weight: bold;
+-fx-font-size: 18;
+}
+
+.scroll-bar .decrement-arrow {
+    -fx-padding: 5;
+ }
+.scroll-bar .increment-arrow {
+    -fx-padding: 5;
+}
